@@ -1,0 +1,26 @@
+<div class="container" id="content">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <h4 class="navText">CONTROLE FINANCEIRO</h4>
+      <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
+        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <i class="fas fa-align-justify"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="nav navbar-nav ml-auto">
+          <li id="liSaldoMes" class="nav-item">
+            <button (click)="obterSaldo()" class="btn btn-link nav-link">Resumo mensal</button>
+          </li>
+          <li id="liContasAReceber" class="nav-item">
+            <button (click)="obterContasAReceber()" class="btn btn-link nav-link">Contas a receber</button>
+          </li>
+          <li id="liContasAPagar" class="nav-item active">
+            <button (click)="obterContasAPagar()" class="btn btn-link nav-link">Contas a pagar</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <router-outlet></router-outlet>
+</div>

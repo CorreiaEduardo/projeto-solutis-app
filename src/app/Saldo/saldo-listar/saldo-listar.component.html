@@ -1,0 +1,35 @@
+<div class="input-group flex-nowrap">
+    <div class="input-group-prepend">
+        <span class="input-group-text" id="addon-wrapping">#</span>
+    </div>
+    <input #data type="month" id="datePicker" class="form-control" aria-describedby="addon-wrapping" required>
+    <div class="input-group-append">
+        <button class="btn btn-success" (click)="buscar(data.value)">Buscar</button>
+    </div>
+    
+</div>
+<div class="mt-3">
+    <div class="card">
+        <div class="card-body">
+                Saldo: R${{saldo}}.00
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+            <tr class="text-center">
+                <th>Valor</th>
+                <th>Vencimento</th>
+                <th>Conta</th>
+                <th>Orientação</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="text-center" *ngFor = "let parcela of parcelas">
+                <td>{{parcela.valor}}</td>
+                <td>{{parcela.vencimento}}</td>
+                <td>{{parcela.nomeConta}}</td>
+                <td>{{parcela.tipoConta}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

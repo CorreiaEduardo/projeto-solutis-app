@@ -1,0 +1,124 @@
+<button class="btn btn-success btn-lg btn-block" (click)="abrirModalNovaConta()">Cadastrar nova conta a pagar</button>
+<div class="card">
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <tr class="text-center">
+                    <th>Nome</th>
+                    <th>Valor Total</th>
+                    <th>Próx. Vencimento</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="text-center" *ngFor = "let conta of contas">
+                    <td>{{conta.nome}}</td>
+                    <td>{{conta.valor}}</td>
+                    <td>{{conta.parcelas[0].vencimento}}</td>
+                    <td>
+                        <button (click)="pagarConta(conta)"class="btn btn-success">Pagar</button>
+                        <button (click)="abrirModal(conta)" class="btn btn-info">Parcelas</button>
+                        <button (click)="abrirModalEditarConta(conta)" class="btn btn-warning">Editar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div id="modalVerParcelas" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Lista de parcelas</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                    <button class="btn btn-success btn-lg btn-block" (click) = "pagarParcela()">
+                        Pagar próxima parcela</button>
+                <table class="table">
+                        <thead>
+                            <tr class="text-center">
+                                <th>Valor</th>
+                                <th>Vencimento</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="text-center" *ngFor = "let parcela of parcelasContaSelec">
+                                <td>{{parcela.valor}}</td>
+                                <td>{{parcela.vencimento}}</td>
+                            </tr>
+                        </tbody>
+                </table>
+            </div>
+            
+        </div>
+    </div>
+</div>
+<div id="modalNovaConta" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Cadastrando conta</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="inputNomeConta">Nome da conta</label>
+                        <input #nome type="text" class="form-control" id="inputNomeConta" placeholder="Insira o nome da conta">
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="inputValorConta">Valor da conta</label>
+                        <input #valor type="text" class="form-control" id="inputValorConta" placeholder="Insira o valor da conta">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputTipoConta">Ciclo da conta</label>
+                        <select #ciclo class="form-control" id="inputTipoConta" >
+                            <option disabled>--Selecionar--</option>
+                            <option>Permanente</option>
+                            <option>Parcelada</option>
+                        </select>
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="inputqtdParcelas">Quantidade de parcelas</label>
+                        <input #parcelas type="text" class="form-control" id="inputqtdParcelas" placeholder="Insira a quantidade de parcelas">
+                    </div>
+
+                    <button class="btn btn-primary btn-lg btn-block" (click)="salvar(nome.value,valor.value,ciclo.value,parcelas.value)">Salvar</button>
+                </form>
+            </div>
+            
+        </div>
+    </div>
+</div>
+<div id="modalEditarConta" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Editando conta</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+            
+                    <div class="form-group">
+                        <label for="inputValorConta">Valor da conta</label>
+                        <input #valoredit type="text" class="form-control" id="inputValorConta" placeholder="Insira o valor da conta" >
+                    </div>
+
+                    <button class="btn btn-primary btn-lg btn-block" (click)="editar(valoredit.value)">Salvar</button>
+                </form>
+            </div>
+            
+        </div>
+    </div>
+</div>
