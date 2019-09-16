@@ -7,9 +7,9 @@ App web que consome uma api, construida para o treinamento da Solutis. Essa app 
 </blockquote>
 
 ### Conteúdos abordados
+* [Funcionalidades](#Funcionalidades)
 * [Servidor de desenvolvimento](#Servidor)
 * [Api utilizada](#Api)
-* [Funcionalidades](#Funcionalidades)
 * [Demo](#Demo)
 
 ### <a name="Funcionalidades"></a>Funcionalidades
