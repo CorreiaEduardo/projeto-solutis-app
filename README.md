@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/CorreiaEduardo/projeto-solutis-api/master/readme-header-img.png"/>
+  <img src="https://raw.githubusercontent.com/CorreiaEduardo/projeto-solutis-app/master/readme-header-img.png"/>
 </p>
 <hr/>
 <blockquote>
